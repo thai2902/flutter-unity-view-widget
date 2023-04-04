@@ -2,6 +2,7 @@ package com.xraph.plugin.flutter_unity_widget
 
 import android.annotation.SuppressLint
 import android.app.Activity
+import android.content.pm.ActivityInfo
 import android.os.Build
 import android.util.Log
 import android.view.View
@@ -168,7 +169,7 @@ class UnityPlayerUtils {
 
         private fun shakeActivity() {
             unityPlayer?.windowFocusChanged(true)
-            if (prevActivityRequestedOrientation != null) {
+            if (prevActivityRequestedOrientation != null && prevActivityRequestedOrientation != ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED) {
                 activity?.requestedOrientation = prevActivityRequestedOrientation!!
             }
         }
